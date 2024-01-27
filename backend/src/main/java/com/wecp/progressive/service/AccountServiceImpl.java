@@ -1,3 +1,4 @@
+
 package com.wecp.progressive.service;
 
 
@@ -10,69 +11,72 @@ import java.util.Comparator;
 import java.util.List;
 
 public class AccountServiceImpl implements AccountService {
-
-    private static List<Accounts> accList = new ArrayList<>();
     private AccountDAO accountDAO;
 
+    private static List<Accounts> accountsList = new ArrayList<>();
     public AccountServiceImpl(AccountDAO accountDAO) {
         this.accountDAO = accountDAO;
     }
+
     @Override
     public List<Accounts> getAllAccounts() throws SQLException {
-        return null;
+        return accountDAO.getAllAccounts();
     }
 
     @Override
     public Accounts getAccountById(int accountId) throws SQLException {
-        return null;
+        return accountDAO.getAccountById(accountId);
     }
 
     @Override
     public int addAccount(Accounts accounts) throws SQLException {
-        return -1;
+        return accountDAO.addAccount(accounts);
     }
 
     @Override
     public void updateAccount(Accounts accounts) throws SQLException {
-
+        accountDAO.updateAccount(accounts);
     }
 
     @Override
     public void deleteAccount(int accountId) throws SQLException {
-
+        accountDAO.deleteAccount(accountId);
     }
 
     @Override
     public List<Accounts> getAllAccountsSortedByBalance() throws SQLException {
-        return null;
+        List<Accounts> sortedAccounts = accountDAO.getAllAccounts();
+        if (sortedAccounts != null) {
+            sortedAccounts.sort(Comparator.comparingDouble(Accounts::getBalance)); // Sort by account balance
+        }
+        return sortedAccounts;
     }
 
 
     @Override
     public List<Accounts> getAccountsByUser(int userId) throws SQLException{
-        return null;
+        return accountDAO.getAllAccounts();
     }
+
     @Override
     public List<Accounts> getAllAccountsSortedByBalanceFromArrayList() {
-        List<Accounts> sortedAccounts = accList;
-        sortedAccounts.sort(Comparator.comparingDouble(Accounts::getBalance));
+        List<Accounts> sortedAccounts = accountsList;
+        sortedAccounts.sort(Comparator.comparingDouble(Accounts::getBalance)); // Sort by account balance
         return sortedAccounts;
     }
 
     @Override
     public void emptyArrayList() {
-        accList=new ArrayList();
-        
+        accountsList = new ArrayList<>();
     }
 
     @Override
     public List<Accounts> getAllAccountsFromArrayList() {
-        return accList;
+        return accountsList;
     }
-    
     @Override
     public List<Accounts> addAccountToArrayList(Accounts accounts) {
-        accList.add(accounts);
-        return accList;
+        accountsList.add(accounts);
+        return accountsList;
     }
 }
