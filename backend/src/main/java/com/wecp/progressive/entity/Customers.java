@@ -2,8 +2,9 @@ package com.wecp.progressive.entity;
 
 
 
-public class Customers {
-    private int customer_id;
+public class Customers implements Comparable<Customers> {
+
+    private int customerId;
     private String name;
     private String email;
     private String username;
@@ -11,23 +12,24 @@ public class Customers {
     private String role;
 
     public Customers() {
+        // constructor
     }
 
-    public Customers(int customer_id, String name, String email, String username, String password, String role) {
-        this.customer_id = customer_id;
+    public Customers(int customerId, String name, String email, String username, String password) {
+        this.customerId = customerId;
         this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.role = role;
     }
 
-    public int getCustomer_id() {
-        return customer_id;
+    // Getters and setters
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getName() {
@@ -45,7 +47,6 @@ public class Customers {
     public void setEmail(String email) {
         this.email = email;
     }
-
     public String getUsername() {
         return username;
     }
@@ -70,4 +71,10 @@ public class Customers {
         this.role = role;
     }
 
+    @Override
+    public int compareTo(Customers customer) {
+        return this.getName().compareTo(customer.getName());
+       
+    }
+    
 }

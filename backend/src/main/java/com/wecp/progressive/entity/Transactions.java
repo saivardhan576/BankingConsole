@@ -1,40 +1,41 @@
 package com.wecp.progressive.entity;
 import java.util.Date;
 
-
 public class Transactions {
-    private int transaction_id;
-    private int account_id;
+
+    private int transactionId;
+    private int accountId;
     private double amount;
-    private Date transaction_date;
-    private String transaction_type;
+    private String transactionType;
+    private Date transactionDate;
 
     public Transactions() {
+        //
     }
 
-    public Transactions(int transaction_id, int account_id, double amount, Date transaction_date,
-            String transaction_type) {
-        this.transaction_id = transaction_id;
-        this.account_id = account_id;
+    public Transactions(int transactionId, int accountId, double amount, Date timestamp, String transactionType) {
+        this.transactionId = transactionId;
+        this.accountId = accountId;
         this.amount = amount;
-        this.transaction_date = transaction_date;
-        this.transaction_type = transaction_type;
+        this.transactionDate = timestamp;
+        this.transactionType = transactionType;
     }
 
-    public int getTransaction_id() {
-        return transaction_id;
+    // Getters and setters
+    public int getTransactionId() {
+        return transactionId;
     }
 
-    public void setTransaction_id(int transaction_id) {
-        this.transaction_id = transaction_id;
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
 
-    public int getAccount_id() {
-        return account_id;
+    public int getAccountId() {
+        return accountId;
     }
 
-    public void setAccount_id(int account_id) {
-        this.account_id = account_id;
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public double getAmount() {
@@ -45,25 +46,19 @@ public class Transactions {
         this.amount = amount;
     }
 
-    public Date getTransaction_date() {
-        return transaction_date;
+    public Date getTransactionDate() {
+        return transactionDate;
     }
 
-    public void setTransaction_date(Date transaction_date) {
-        this.transaction_date = transaction_date;
+    public void setTransactionDate(Date transactionDate) {
+        this.transactionDate = transactionDate;
     }
 
-    public String getTransaction_type() {
-        return transaction_type;
+    public String getTransactionType() {
+        return transactionType;
     }
 
-    public void setTransaction_type(String transaction_type) {
-        this.transaction_type = transaction_type;
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
     }
-
-    
-
-    
-
-
 }
