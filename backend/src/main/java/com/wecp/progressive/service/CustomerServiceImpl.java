@@ -2,7 +2,6 @@ package com.wecp.progressive.service;
 
 
 import com.wecp.progressive.dao.CustomerDAO;
-import com.wecp.progressive.dao.CustomerDAOImpl;
 import com.wecp.progressive.entity.Customers;
 
 import java.sql.SQLException;
@@ -10,10 +9,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 public class CustomerServiceImpl implements CustomerService {
-
-    CustomerDAO customerDAO;
+    @Autowired
+    private CustomerDAO customerDAO;
     private static List<Customers> customersList = new ArrayList<>();
 
     public CustomerServiceImpl(CustomerDAO customerDAO) {
@@ -22,27 +23,30 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customers> getAllCustomers() throws SQLException {
-        return customerDAO.getAllCustomers();
+       //return customerDAO.getAllCustomers();
+        return null;
     }
 
     @Override
     public Customers getCustomerById(int customerId) throws SQLException {
-        return customerDAO.getCustomerById(customerId);
+        //return customerDAO.getCustomerById(customerId);
+        return null;
     }
 
     @Override
     public int addCustomer(Customers customers) throws SQLException {
-        return customerDAO.addCustomer(customers);
+        //return customerDAO.addCustomer(customers);
+        return -1;
     }
 
     @Override
     public void updateCustomer(Customers customers) throws SQLException {
-        customerDAO.updateCustomer(customers);
+        //customerDAO.updateCustomer(customers);
     }
 
     @Override
     public void deleteCustomer(int customerId) throws SQLException {
-        customerDAO.deleteCustomer(customerId);
+        //customerDAO.deleteCustomer(customerId);
     }
 
     @Override
