@@ -59,7 +59,7 @@ public class AccountServiceImplJpa implements AccountService {
 
     @Override
     public List<Accounts> getAllAccountsSortedByBalance() throws SQLException {
-        return null;
+        return accountRepository.findByOrderByBalance();
     }
 
     @Override
