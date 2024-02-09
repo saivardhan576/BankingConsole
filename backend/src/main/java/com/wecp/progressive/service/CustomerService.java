@@ -5,6 +5,7 @@ import com.wecp.progressive.entity.Customers;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
+// day 12
 
 public interface CustomerService {
 // The methods mentioned below have to be used for JDBC interactions with the database.
